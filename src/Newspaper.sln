@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2042
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newspaper", "Newspaper\Newspaper.csproj", "{E9E0B63B-4A4F-4EF6-8710-606C7AF3170F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newspaper.Job", "Newspaper.Job\Newspaper.Job.csproj", "{98F75536-8EFC-4085-BA40-E2BB7960E052}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E9E0B63B-4A4F-4EF6-8710-606C7AF3170F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9E0B63B-4A4F-4EF6-8710-606C7AF3170F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9E0B63B-4A4F-4EF6-8710-606C7AF3170F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9E0B63B-4A4F-4EF6-8710-606C7AF3170F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98F75536-8EFC-4085-BA40-E2BB7960E052}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98F75536-8EFC-4085-BA40-E2BB7960E052}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98F75536-8EFC-4085-BA40-E2BB7960E052}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98F75536-8EFC-4085-BA40-E2BB7960E052}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2D142E94-EECE-487E-A87E-3F54CD2DB070}
+	EndGlobalSection
+EndGlobal
