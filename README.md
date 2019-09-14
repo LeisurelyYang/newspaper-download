@@ -8,6 +8,11 @@
 * Simplify.Mail邮件发送
 * Quartz定时调度
 
+## 联系我
+* 本人电脑存有下载的电子报PDF文件，如果需要请联系我
+* 如果需要将你的邮箱加入推送目录，请联系我
+* 联系QQ:1030065158,添加时请备注github上看到
+
 ## 请作者喝咖啡
 <img src="https://github.com/LeisurelyYang/newspaper-download/blob/master/resources/zhifubao.jpg" width="400" align=center />
 <img src="https://github.com/LeisurelyYang/newspaper-download/blob/master/resources/weixin.jpg" width="400" align=center />
