@@ -19,5 +19,16 @@ namespace Newspaper.Job
                 return ConfigurationManager.AppSettings["JobCron"];
             }
         }
+        /// <summary>
+        /// 接收者的邮箱地址
+        /// </summary>
+        public static List<string> Receivers
+        {
+            get
+            {
+                string receiverStr = ConfigurationManager.AppSettings["Receivers"];
+                return receiverStr.Split(';')?.ToList();
+            }
+        }
     }
 }

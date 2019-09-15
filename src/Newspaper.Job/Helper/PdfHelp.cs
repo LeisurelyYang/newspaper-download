@@ -22,11 +22,12 @@ namespace Newspaper.Job.Helper
             string[] files = Directory.GetFiles(foldPath);
 
             string mergePath = Path.Combine(destPath, $"{name}.pdf");
-            PdfDocumentBase doc = PdfDocument.MergeFiles(files);
-
-            //保存文档
-            doc.Save(mergePath, FileFormat.PDF);
-            return name;
+            using (PdfDocumentBase doc = PdfDocument.MergeFiles(files))
+            {
+                //保存文档
+                doc.Save(mergePath, FileFormat.PDF);
+                return name;
+            }
         }
     }
 }

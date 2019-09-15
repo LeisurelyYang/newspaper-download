@@ -11,6 +11,8 @@ namespace Newspaper.Job
     {
         static void Main(string[] args)
         {
+            log4net.Config.XmlConfigurator.Configure();
+
             var serviceName = "newspaper-报纸下载推送服务-v1.0.0.0";
             HostFactory.Run(x =>
             {

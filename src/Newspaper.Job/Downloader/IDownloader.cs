@@ -9,7 +9,7 @@ namespace Newspaper.Job.Downloader
     /// <summary>
     /// 下载器接口
     /// </summary>
-    public interface IDownloader
+    public interface IDownloader : IDisposable
     {
         /// <summary>
         /// 执行下载

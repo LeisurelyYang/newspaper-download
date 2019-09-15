@@ -1,4 +1,5 @@
-﻿using Newspaper.Job.Helper;
+﻿using log4net;
+using Newspaper.Job.Helper;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -9,8 +10,10 @@ using System.Threading.Tasks;
 
 namespace Newspaper.Job.Downloader
 {
-    public abstract class AbstractDownLoader : IDownloader, IDisposable
+    public abstract class AbstractDownLoader : IDownloader
     {
+        private static readonly ILog logger = LogManager.GetLogger(typeof(AbstractDownLoader));
+
         private DateTime startTime;
         private DateTime endTime;
 
@@ -84,8 +87,9 @@ namespace Newspaper.Job.Downloader
 
                         File.WriteAllBytes(filePath, fileBytes);
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
+                        logger.Error(ex);
                         break;
                     }
                 }
@@ -107,7 +111,7 @@ namespace Newspaper.Job.Downloader
                 string mergeSavePath = Path.Combine(MergePath, $"{name}.pdf");
 
                 //发送邮件
-                MailHelper.Send("zhahainie8480@163.com", new List<string>() { "807971281@qq.com" }, $"{term.ToString("yyyyMMdd")}期{NewspaperName}", $"{NewspaperName}，请查收", mergeSavePath);
+                MailHelper.Send("zhahainie8480@163.com", Appsettings.Receivers, $"{term.ToString("yyyyMMdd")}期{NewspaperName}", $"{NewspaperName}，请查收", mergeSavePath);
             }
         }
 
@@ -148,8 +152,13 @@ namespace Newspaper.Job.Downloader
                         listTerm.Add(i);
                     }
                 }
-                catch (Exception)
+                catch (HttpRequestException)
                 {
+                    continue;
+                }
+                catch (Exception ex)
+                {
+                    logger.Error(ex);
                     continue;
                 }
             }
@@ -179,7 +188,7 @@ namespace Newspaper.Job.Downloader
         /// <param name="downloadTime">当前下载日期</param>
         /// <param name="subIndex">当前分版索引</param>
         /// <returns></returns>
-        protected abstract string GetDownLink(DateTime downloadTime, int subIndex,string fileName);
+        protected abstract string GetDownLink(DateTime downloadTime, int subIndex, string fileName);
 
 
         /// <summary>

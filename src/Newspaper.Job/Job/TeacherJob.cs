@@ -1,4 +1,5 @@
-﻿using Newspaper.Job.Downloader;
+﻿using log4net;
+using Newspaper.Job.Downloader;
 using Newspaper.Job.Helper;
 using Newspaper.Job.Model;
 using Quartz;
@@ -19,6 +20,7 @@ namespace Newspaper.Job
     [DisallowConcurrentExecution]
     public class TeacherJob : IJob
     {
+        private static readonly ILog logger = LogManager.GetLogger(typeof(TeacherJob));
         public void Execute(IJobExecutionContext context)
         {
             try
@@ -28,14 +30,16 @@ namespace Newspaper.Job
 #if DEBUG
                 end = new DateTime(2019, 09, 11);
 #endif
-                end = new DateTime(2019, 09, 11);
                 DateTime start = end.AddDays(-1);
 
-                IDownloader loader = DownLoaderFactory.CreateDownloader(NewsPaperTypeEnum.ChinaTeacher, start, end);
-                loader.Exec();
+                using (IDownloader loader = DownLoaderFactory.CreateDownloader(NewsPaperTypeEnum.ChinaTeacher, start, end))
+                {
+                    loader.Exec();
+                }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                logger.Error(ex);
             }
         }
     }
