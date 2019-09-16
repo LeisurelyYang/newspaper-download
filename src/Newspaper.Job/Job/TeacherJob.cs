@@ -28,7 +28,7 @@ namespace Newspaper.Job
                 DateTime end = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
 
 #if DEBUG
-                end = new DateTime(2019, 09, 11);
+                end = new DateTime(2019, 09, 16);
 #endif
                 DateTime start = end.AddDays(-1);
 

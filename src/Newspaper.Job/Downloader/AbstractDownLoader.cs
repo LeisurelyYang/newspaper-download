@@ -57,6 +57,8 @@ namespace Newspaper.Job.Downloader
 
             this.client = new HttpClient();
             this.client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36");
+
+            this.client.Timeout = TimeSpan.FromMinutes(10);
         }
         public void Exec()
         {
@@ -88,7 +90,7 @@ namespace Newspaper.Job.Downloader
                         File.WriteAllBytes(filePath, fileBytes);
                     }
                     catch (Exception ex)
-                    {
+                     {
                         logger.Error(ex);
                         break;
                     }
